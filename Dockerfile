@@ -58,8 +58,7 @@ RUN sed -i 's/^MS_PrintLicense$//' /tmp/ts3.run && \
 # Install SinusBot
 ADD $SINUSBOT_URL /tmp/sinusbot.tar.bz2
 ADD run.sh /home/teamspeak/sinusbot/run.sh
-RUN mkdir /home/teamspeak/sinusbot && \
-    tar -vxjf /tmp/sinusbot.tar.bz2 -C /home/teamspeak/sinusbot && \
+RUN tar -vxjf /tmp/sinusbot.tar.bz2 -C /home/teamspeak/sinusbot && \
     rm /tmp/sinusbot.tar.bz2 && \
     ln -s /home/teamspeak/sinusbot/plugin/libsoundbot_plugin.so /home/teamspeak/TeamSpeak3-Client-linux_amd64/plugins/libsoundbot_plugin.so && \
     mv /home/teamspeak/sinusbot/config.ini.dist /home/teamspeak/sinusbot/config.ini && \
